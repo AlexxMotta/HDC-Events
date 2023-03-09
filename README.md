@@ -3,3 +3,19 @@
 ## About Laravel
 
 Aplicação feita usando o Laravel.
+
+### Criar Banco MySQL no Docker
+
+docker run -p 3306:3306 --name=seu-container -e MYSQL_USER=root -e MYSQL_PASSWORD=root -d mysql/mysql-server
+
+### Comando para criar uma migration
+-- [php artisan make:migration create_products_table]
+
+### Verificar as migrations que já foram aplicadas
+--[php artisan migration:status]
+
+### Rodar as migrations 
+--[php artisan migrate]
+
+### Reinicia as migrations 
+--[php artisan migrate::fresh]
