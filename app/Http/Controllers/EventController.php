@@ -26,7 +26,7 @@ class EventController extends Controller
 
         echo $event;
         $event->save();
-        return redirect('/');
+        return redirect('/')->with('msg','Evento criado com sucesso');
     }
 
 }
