@@ -24,7 +24,15 @@ class EventController extends Controller
         $event->private = $request->private;
         $event->description = $request->description;
 
-        echo $event;
+        //Image Upload
+        if($request->hasfile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+            $request->image->move(public_path('img/events'),$imageName);
+            $event->image = $imageName;
+        }
+
         $event->save();
         return redirect('/')->with('msg','Evento criado com sucesso');
     }
