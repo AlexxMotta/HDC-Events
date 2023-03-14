@@ -14,8 +14,18 @@ docker run -p 3306:3306 --name=seu-container -e MYSQL_USER=root -e MYSQL_PASSWOR
 ### Verificar as migrations que já foram aplicadas
 --[php artisan migration:status]
 
-### Rodar as migrations 
+### Rodar as migrations (up)
 --[php artisan migrate]
 
 ### Reinicia as migrations 
 --[php artisan migrate::fresh]
+
+### Alterar uma tabela ja criada
+--[php artisan make::migration add_column_to_name_table]
+Apos rodar o comando complete os funções down e up
+
+### Para "voltar" uma migration (down)
+--[php artisan migrate:rollback]
+
+### Criar um Model
+--[php artisan make:model Event]
